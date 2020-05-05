@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: echoserver-chris
+  namespace: chrissoft
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: echoserver-chris
+    spec:
+      containers:
+      - image: gcr.io/google_containers/echoserver:1.4
+        imagePullPolicy: Always
+        name: echoserver-chris
+        ports:
+        - containerPort: 8080
